@@ -20,11 +20,21 @@ class Matrix
     end
 
     def get_element(x, y)
-        @matrix[x][y]
+        return nil if !0.upto(@matrix[0].length - 1).to_a.include?(x) 
+        return nil if !0.upto(@matrix.length - 1).to_a.include?(y)
+        return @matrix[y][x]
     end
 
     def set_element(x, y, value)
         @matrix[x][y] = value
+    end
+
+    def each
+        @matrix.each_with_index do |row, y|
+            row.each_with_index do |element, x|
+                yield(x, y, element)
+            end
+        end
     end
 
     def count_2s
