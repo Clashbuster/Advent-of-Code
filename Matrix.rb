@@ -26,7 +26,7 @@ class Matrix
     end
 
     def set_element(x, y, value)
-        @matrix[x][y] = value
+        @matrix[y][x] = value
     end
 
     def each
