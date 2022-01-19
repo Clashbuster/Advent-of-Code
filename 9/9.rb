@@ -76,6 +76,8 @@ basins = {}
     end
 end
 
+p basins
+
 basins = basins.values.sort
 
 # PART 1

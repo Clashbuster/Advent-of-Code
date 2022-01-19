@@ -1,10 +1,6 @@
+require_relative "./Node"
+
 class List
-    class Node
-        attr_accessor :next, :value
-        def initialize(value)
-            @value = value
-        end
-    end
 
     attr_accessor :head, :tail, :length
 

@@ -1,6 +1,6 @@
 require_relative "./Node"
 
-class Queue
+class Stack
 
     attr_accessor :head, :tail, :length
 
@@ -19,21 +19,30 @@ class Queue
             @tail = new_node
             return
         end
-        if @head and !@head.next
-            @tail = Node.new(value)
-            @head.next = @tail
+        if @tail
+            new_node = Node.new(value)
+            new_node.next = @tail
+            @tail = new_node
             return
         end
-        @tail.next = Node.new(value)
-        @tail = @tail.next
     end
 
     def pop
         return nil if !@head
         @length -= 1
-        output = @head
-        @head = @head.next
-        output.value
+        output = @tail
+        @tail = output.next
+        return output.value
+    end
+
+    def fill(array)
+        if array.class != Array
+            raise TypeError.new("method \"fill\" only accepts arrays")
+        end
+        @length += array.length
+        array.each do |el|
+            self.push(el)
+        end
     end
 end
 
