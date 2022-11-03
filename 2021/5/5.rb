@@ -1,4 +1,4 @@
-require_relative "../Matrix"
+require_relative "../../Structs/Matrix"
 
 file = File.open("input.txt")
 file_data = file.read
