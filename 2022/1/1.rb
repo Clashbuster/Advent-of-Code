@@ -1,38 +1,20 @@
-file = File.open("input.txt")
-file_data = file.read
+# The more Golfy version:
+current_bag = 0
+bags = []
 
-elves_bags = file_data.split("\n").map do |item|
+File.open("input.txt").read.split("\n").each do |item|
     if item === ""
-        item
+        bags << current_bag
+        current_bag = 0
     else
-        item.to_i
+        current_bag += item.to_i
     end
 end
 
-total_calories_by_elf = {}
-
-elf_id = 0
-
-elves_bags.each do |food_item|
-    if food_item === ""
-        elf_id += 1
-        next
-    end
-
-    if total_calories_by_elf[elf_id]
-        total_calories_by_elf[elf_id] += food_item
-    else
-        total_calories_by_elf[elf_id] = food_item
-    end
-end
-
-sorted_values = total_calories_by_elf.values.sort
-
-first, second, third = sorted_values[-1], sorted_values[-2], sorted_values[-3]
+bags.sort! {|a, b| b <=> a}
 
 # Part 1
-p first
+p bags[0]
 
-# Part 2
-p first + second + third
-
+# PArt 2
+p bags[0] + bags[1] + bags[2]
