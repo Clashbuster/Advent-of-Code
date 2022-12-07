@@ -27,7 +27,29 @@ input_data.each do |rucksack|
     end
 end
 
+sum_of_badges = 0
+
+iteration = 0
+while iteration < input_data.length
+    first = input_data[iteration]
+    second = input_data[iteration + 1]
+    third = input_data[iteration + 2]
+
+    first.split("").each do |letter|
+        if(second.match(/#{letter}/) and third.match(/#{letter}/))
+            sum_of_badges += priorities[letter]
+            break
+        end
+    end
+
+    iteration += 3
+end
+
+
 # Part 1
 p sum_of_priorities
+
+# Part 2
+p sum_of_badges
 
 

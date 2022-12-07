@@ -9,7 +9,7 @@
         Dir.chdir file_name
         File.open("#{file_name}.rb", "w") do |f|     
             f.write(
-                "require_relative \"../../Structs/Matrix\"\nrequire_relative \"../../Structs/List\"\nrequire_relative \"../../Structs/Queue\"\nrequire_relative \"../../Structs/Stack\"\n"
+                "require_relative \"../../Structs/Matrix\"\nrequire_relative \"../../Structs/List\"\nrequire_relative \"../../Structs/Queue\"\nrequire_relative \"../../Structs/Stack\"\nFile.open(\"input.txt\").read"
                 )   
         end
         File.new("input.txt", "a+")
