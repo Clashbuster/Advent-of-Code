@@ -1,12 +1,9 @@
-
 input_data = File.open("input.txt").read.split("\n")
 
 # input_data = File.open("test.txt").read.split("\n")
 
-
 tally_of_complete_covers = 0
 tally_of_any_overlap = 0
-
 
 input_data.each do |element|
     sections = element.split(/[,,-]+/)
