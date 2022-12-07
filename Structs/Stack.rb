@@ -12,19 +12,19 @@ class Stack
 
 
     def push(value)
-        @length += 1
         if !@tail or !@head
             new_node = Node.new(value)
             @head = new_node
             @tail = new_node
+            @length += 1
             return
         end
-        if @tail
-            new_node = Node.new(value)
-            new_node.next = @tail
-            @tail = new_node
-            return
-        end
+        
+        new_node = Node.new(value)
+        new_node.next = @tail
+        @tail = new_node
+        @length += 1
+        return
     end
 
     def pop
