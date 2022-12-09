@@ -36,13 +36,6 @@ input_data.each do |instruction|
         item = stacks[from].pop()
         stacks[to].push(item)
     end
-end
-
-input_data.each do |instruction|
-    instruction = instruction.split(" ")
-    number_of_items = instruction[1].to_i
-    from = instruction[3].to_i - 1
-    to = instruction[5].to_i - 1
 
     items = []
     number_of_items.times do
