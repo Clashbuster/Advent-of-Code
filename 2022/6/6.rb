@@ -2,8 +2,6 @@ require 'set'
 require_relative "../../Helpers.rb"
 
 input_data = File.open("input.txt").read.split("\n")
-test_data = File.open("test.txt").read.split("\n")
-
 
 def find_first_char_marker(string)
     # convert each letter in the string to numbers via an alpha-numeric table so they behave nicely with set
